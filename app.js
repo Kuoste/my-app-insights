@@ -9,7 +9,11 @@ appinsights.setup(process.env.APPLICATIONINSIGHTS_CONNECTION_STRING)
     .setUseDiskRetryCaching(true)
     .setSendLiveMetrics(true)
     .setDistributedTracingMode(appinsights.DistributedTracingModes.AI_AND_W3C)
-    .start()
+    
+  appinsights.defaultClient.config.samplingPercentage = 50;
+  appinsights.start();
+  
+  
 
 var createError = require('http-errors');
 var express = require('express');
