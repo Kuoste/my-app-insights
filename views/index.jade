@@ -3,3 +3,7 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+script(type='text/javascript')
+  appInsights.trackEvent({name: 'clientCount', properties: {prop1: 'value1'}});
+  appInsights.trackPageView({name: 'index', properties: {prop1: 'value1'}});
